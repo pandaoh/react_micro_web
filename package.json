@@ -1,0 +1,85 @@
+{
+  "name": "react_micro_web",
+  "version": "1.0.0",
+  "description": "简易伪微前端模板",
+  "scripts": {
+    "init": "npm i --ignore-scripts",
+    "prepare": "husky install && npx husky add .husky/pre-commit npm_run_lint && npx husky add .husky/pre-commit npm_run_time && npx husky add .husky/pre-commit npm_run_update-hooks",
+    "prepare:after": "因为 windows 系统执行 husky 命令带空格会报错，所以完成安装后记得替换 .husky/pre-commit 中的 _ 为空格。",
+    "dev": "vite",
+    "build": "vite build",
+    "server": "vite preview",
+    "lint": "npm run prettier && npm run eslint",
+    "eslint": "eslint ./ --fix --ext .ts,.tsx,.js,.jsx,.vue",
+    "prettier": "prettier --write ./**/*.{ts,tsx,js,jsx,vue,html,css,scss,less}",
+    "eslint:init": "eslint --init",
+    "update-hooks": "npm run update-x && npm run update-x-dev",
+    "update-x": "npm i js-xhttp js-xxx js-xcall",
+    "update-x-dev": "npm i js-xcmd -D",
+    "clean": "xcmd clean",
+    "time": "xcmd update-time"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run time && npm run update-hooks"
+    }
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@ant-design/pro-components": "^1.1.12",
+    "@reduxjs/toolkit": "^1.8.3",
+    "antd": "^4.19.5",
+    "js-xcall": "^1.1.1",
+    "js-xhttp": "^1.4.9",
+    "js-xxx": "^1.2.6",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^8.0.2",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.24",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/react-router-dom": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
+    "@vitejs/plugin-react-refresh": "^1.3.2",
+    "electron": "^18.0.4",
+    "electron-builder": "^23.0.3",
+    "eslint": "^8.13.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-spellcheck": "0.0.19",
+    "eslint-plugin-zob": "^0.4.0",
+    "husky": "^7.0.4",
+    "js-xcmd": "^1.3.0",
+    "node-sass": "^7.0.1",
+    "prettier": "^2.6.2",
+    "sass": "^1.53.0",
+    "sass-loader": "^13.0.2",
+    "vite": "^2.9.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pandaoh/react_micro_web.git"
+  },
+  "keywords": [
+    "micro-web",
+    "react-system",
+    "react-admin",
+    "react-app",
+    "admin-system-app"
+  ],
+  "author": "leo he",
+  "email": "hxbpandaoh@163.com",
+  "blog": "http://a.biugle.cn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pandaoh/react_micro_web/issues"
+  },
+  "homepage": "https://github.com/pandaoh/react_micro_web/blob/main/README.md",
+  "time": "3020291721072022"
+}

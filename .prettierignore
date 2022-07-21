@@ -1,0 +1,11 @@
+.DS_Store/**
+.idea/**
+.vscode/**
+**/node_modules/**
+**/dist/**
+**/test/**
+**/*.svg
+**/*.toml
+**/*.xml
+**/**.min.*
+build_exe/**
