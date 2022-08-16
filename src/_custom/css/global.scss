@@ -1,0 +1,15 @@
+$dark: #343a40;
+$light: #f8f9fa;
+$info: #17a2b8;
+$success: #28a745;
+$warning: #ffc107;
+$danger: #dc3545;
+$primary: #007bff;
+$secondary: #6c757d;
+
+$font-family: Arial, 'Microsoft YaHei', PingFangSC-Regular, 'Hiragino Sans GB', 'Droid Sans Fallback',
+  'WenQuanYi Micro Hei', sans-serif;
+
+@function px($n) {
+  @return $n / 1920 * 100rem
+}

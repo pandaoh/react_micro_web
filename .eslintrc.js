@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-04-15 14:29:54
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-21 18:01:18
+ * @LastEditTime: 2022-08-15 16:46:13
  * @Description: eslint 配置文件
  * @FilePath: \react_micro_web\.eslintrc.js
  */
@@ -59,6 +59,8 @@ module.exports = {
           'linux',
           'darwin',
           'resizable',
+          'redux',
+          'consts',
         ],
         skipIfMatch: [
           'http://[^s]*',

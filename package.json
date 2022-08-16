@@ -1,7 +1,7 @@
 {
   "name": "react_micro_web",
   "version": "1.0.0",
-  "description": "简易伪微前端模板",
+  "description": "简易伪微前端模板-太极(TaiJi)",
   "scripts": {
     "init": "npm i --ignore-scripts",
     "prepare": "husky install && npx husky add .husky/pre-commit npm_run_lint && npx husky add .husky/pre-commit npm_run_time && npx husky add .husky/pre-commit npm_run_update-hooks",

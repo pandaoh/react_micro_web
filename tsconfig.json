@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "target": "esnext",
+    "module": "commonjs",
+    "lib": ["ES2015", "dom"],
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@settings/*": ["./settings/*"],
+      "@public/*": ["./public/*"],
+      "@_custom/*": ["./src/_custom/*"],
+      "@common/*": ["./src/common/*"],
+      "@consts/*": ["./src/consts/*"],
+      "@configuration/*": ["./src/configuration/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@libs/*": ["./src/libs/*"],
+      "@locales/*": ["./src/locales/*"],
+      "@redux/*": ["./src/redux/*"],
+      "@modules/*": ["./src/modules/*"],
+      "@resource/*": ["./src/resource/*"],
+      "@router/*": ["./src/router/*"],
+      "@tools/*": ["./src/tools/*"],
+      "@services/*": ["./src/services/*"],
+      "@types/*": ["./src/types/*"],
+      "@views/*": ["./src/views/*"]
+    }
+  }
+}
+
