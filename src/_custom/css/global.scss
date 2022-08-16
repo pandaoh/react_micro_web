@@ -11,5 +11,5 @@ $font-family: Arial, 'Microsoft YaHei', PingFangSC-Regular, 'Hiragino Sans GB', 
   'WenQuanYi Micro Hei', sans-serif;
 
 @function px($n) {
-  @return $n / 1920 * 100rem
+  @return $n / 1920 * 100rem;
 }

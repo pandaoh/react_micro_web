@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-04-15 14:29:54
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-15 16:46:13
+ * @LastEditTime: 2022-08-16 15:09:38
  * @Description: eslint 配置文件
  * @FilePath: \react_micro_web\.eslintrc.js
  */
@@ -61,6 +61,7 @@ module.exports = {
           'resizable',
           'redux',
           'consts',
+          'unmount',
         ],
         skipIfMatch: [
           'http://[^s]*',

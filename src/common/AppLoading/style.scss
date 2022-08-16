@@ -1,76 +1,135 @@
-// 样式隔离，不推荐 css module 以及直接 import 普通 css 文件。
 [data-component='AppLoading'] {
   &.container {
-    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: $light;
   }
 
-  .circle {
-    width: 50px;
-    height: 50px;
-    background-color: aliceblue;
-    border-radius: 50%;
+  .loading-box {
+    position: relative;
+    width: 300px;
+    height: 300px;
+  }
+
+  .loading-box .sun {
     position: absolute;
-    animation: pulse 3s ease-in-out infinite;
+    top: 135px;
+    left: calc(50% - 136px / 2);
+    width: 136px;
+    height: 136px;
+    animation: sun 2.7s linear infinite;
   }
 
-  .circle:nth-child(1) {
-    width: calc(50px * 1);
-    height: calc(50px * 1);
-    opacity: 1;
-    animation-delay: 0.12s;
-  }
-  .circle:nth-child(2) {
-    width: calc(50px * 2);
-    height: calc(50px * 2);
-    opacity: 0.5;
-    animation-delay: 0.24s;
-  }
-  .circle:nth-child(3) {
-    width: calc(50px * 3);
-    height: calc(50px * 3);
-    opacity: 0.33;
-    animation-delay: 0.36s;
-  }
-  .circle:nth-child(4) {
-    width: calc(50px * 4);
-    height: calc(50px * 4);
-    opacity: 0.25;
-    animation-delay: 0.48s;
-  }
-  .circle:nth-child(5) {
-    width: calc(50px * 5);
-    height: calc(50px * 5);
-    opacity: 0.2;
-    animation-delay: 0.6s;
-  }
-  .circle:nth-child(6) {
-    width: calc(50px * 6);
-    height: calc(50px * 6);
-    opacity: 0.16;
-    animation-delay: 0.72s;
+  .loading-box .sun .sun-body {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 6px solid $dark;
+    animation: sun-body 2.7s linear infinite;
   }
 
-  @keyframes pulse {
-    0% {
+  .loading-box .sun .sun-body .line {
+    position: absolute;
+    top: -24px;
+    left: calc(50% - 3px);
+    width: 6px;
+    height: 12px;
+    border-radius: 6px;
+    background-color: $warning;
+    transform-origin: center 68px;
+  }
+
+  .loading-box .sun .eye {
+    position: absolute;
+    top: 60px;
+    left: 40px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $info;
+    box-shadow: 16px 0 $info;
+    animation: eye 2.7s linear infinite;
+  }
+
+  .loading-box .horizon {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 115px;
+    background-color: $light;
+  }
+
+  .loading-box .horizon::before {
+    content: '';
+    position: absolute;
+    left: 5%;
+    width: 90%;
+    height: 6px;
+    border-radius: 6px;
+    background-color: $dark;
+  }
+
+  .loading-box .horizon::after {
+    content: 'Loading...';
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    color: $dark;
+    animation: loading 2.7s linear infinite;
+  }
+
+  @keyframes sun {
+    10% {
+      transform: translate(0);
+    }
+    40%,
+    70% {
+      transform: translateY(-40px);
+    }
+  }
+
+  @keyframes sun-body {
+    40% {
+      transform: rotate(0);
+    }
+    50%,
+    100% {
+      transform: rotate(45deg);
+    }
+  }
+
+  @keyframes eye {
+    50%,
+    60% {
       transform: scale(1);
     }
-    25% {
-      transform: scale(1.3);
+    55% {
+      transform: scaleY(0.1);
     }
-    50% {
-      transform: scale(0.7);
+    70%,
+    100% {
+      transform: translateX(34px);
     }
-    75% {
-      transform: scale(1);
+  }
+
+  @keyframes loading {
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 0;
     }
   }
 }

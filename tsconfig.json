@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
+    "types": ["vite/client"],
     "resolveJsonModule": true,
+    "moduleResolution": "node",
     "target": "esnext",
-    "module": "commonjs",
+    "module": "esnext",
     "lib": ["ES2015", "dom"],
     "strict": false,
     "esModuleInterop": true,
