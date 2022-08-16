@@ -9,7 +9,7 @@
     "prepare:after": "因为 windows 系统执行 husky 命令带空格会报错，所以完成安装后记得替换 .husky/pre-commit 中的 _ 为空格。",
     "dev": "vite",
     "build": "vite build",
-    "server": "vite preview",
+    "server": "npm run build && vite preview --host",
     "lint": "npm run prettier && npm run eslint",
     "eslint": "eslint ./ --fix --ext .ts,.tsx,.js,.jsx,.vue",
     "prettier": "prettier --write ./**/*.{ts,tsx,js,jsx,vue,html,css,scss,less}",
@@ -50,7 +50,7 @@
     "@types/react-router-dom": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
     "@typescript-eslint/parser": "^5.19.0",
-    "@vitejs/plugin-react-refresh": "^1.3.2",
+    "@vitejs/plugin-react": "^2.0.1",
     "electron": "^18.0.4",
     "electron-builder": "^23.0.3",
     "eslint": "^8.13.0",
@@ -66,7 +66,8 @@
     "prettier": "^2.6.2",
     "sass": "^1.53.0",
     "sass-loader": "^13.0.2",
-    "vite": "^2.9.4"
+    "terser": "^5.14.2",
+    "vite": "^3.0.7"
   },
   "repository": {
     "type": "git",

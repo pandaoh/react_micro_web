@@ -2,13 +2,13 @@
  * @Author: HxB
  * @Date: 2022-08-12 16:53:31
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-15 18:32:51
+ * @LastEditTime: 2022-08-16 12:46:10
  * @Description: Vite 配置文件
  * @FilePath: \react_micro_web\vite.config.ts
  */
 import path from 'path';
 import { defineConfig } from 'vite';
-import reactRefresh from '@vitejs/plugin-react-refresh';
+import reactPlugin from '@vitejs/plugin-react';
 
 // eslint-disable-next-line no-undef
 const getPath = _path => path.resolve(__dirname, _path);
@@ -23,8 +23,17 @@ export default defineConfig(({ command, mode }) => {
       target: 'modules',
       outDir: 'dist',
       assetsDir: 'assets',
+      // vite 3.0.0+ 需要安装 terser
       minify: 'terser',
+      terserOptions: {
+        // 生产环境去除 console
+        compress: {
+          drop_console: true,
+          drop_debugger: true,
+        },
+      },
     },
+    // 作为静态资源服务的文件夹，并且始终按原样提供或复制而无需进行转换。
     publicDir: getPath('public'),
     resolve: {
       alias: {
@@ -48,9 +57,16 @@ export default defineConfig(({ command, mode }) => {
         '@views': getPath('src/views'),
       },
     },
+    preview: {
+      // vite preview --port=9527 --host
+      port: 9527,
+    },
     server: {
       cors: true,
+      // 在开发服务器启动时自动在浏览器中打开应用程序
       open: true,
+      hmr: true,
+      host: true,
       port: 1998,
       proxy: {
         '^/api': {
@@ -77,6 +93,6 @@ export default defineConfig(({ command, mode }) => {
         },
       },
     },
-    plugins: [reactRefresh()],
+    plugins: [reactPlugin()],
   };
 });

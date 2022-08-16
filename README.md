@@ -9,7 +9,7 @@
 * TypeScript
 * Scss/Less
 * Ant Design 4.x
-* Vite 2.x
+* Vite 3.x
 * Electron
 * EsLint
 * Prettier
@@ -108,7 +108,7 @@ ________________________________________________________________________________
 
 * [React](https://reactjs.bootcss.com/)
 * [Redux Toolkit](http://cn.redux.js.org/redux-toolkit/overview/)
-* [Vite](https://cn.vitejs.dev/guide/)
+* [Vite](https://vitejs.cn/guide/)
 * [Ant Design](https://ant.design/components/overview-cn/)
 * [Ant Design ProComponents](https://procomponents.ant.design/components/)
 
