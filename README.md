@@ -26,7 +26,7 @@ xcmd create-micro-web [dir]
 
 ## Start
 
-* `npm install`
+* `npm install` or `npm run init`
 
 ## Development
 

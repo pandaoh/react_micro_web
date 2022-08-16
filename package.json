@@ -4,6 +4,7 @@
   "description": "简易伪微前端模板-太极(TaiJi)",
   "scripts": {
     "init": "npm i --ignore-scripts",
+    "preinstall": "npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions",
     "prepare": "husky install && npx husky add .husky/pre-commit npm_run_lint && npx husky add .husky/pre-commit npm_run_time && npx husky add .husky/pre-commit npm_run_update-hooks",
     "prepare:after": "因为 windows 系统执行 husky 命令带空格会报错，所以完成安装后记得替换 .husky/pre-commit 中的 _ 为空格。",
     "dev": "vite",
@@ -36,6 +37,11 @@
     "react-dom": "^17.0.2",
     "react-redux": "^8.0.2",
     "react-router-dom": "^5.2.0"
+  },
+  "resolutions": {
+    "@types/react": "17.0.39",
+    "@types/react-dom": "17.0.11",
+    "@types/react-router-dom": "5.1.7"
   },
   "devDependencies": {
     "@types/node": "^17.0.24",
