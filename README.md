@@ -55,6 +55,7 @@ ________________________________________________________________________________
 |    ├─dev（开发环境工具）
 |    ├─ci_cd（CI/CD 工具）
 ├─src（源代码目录）
+|  ├─main.tsx（主程序）
 |  ├─_custom（主程序自定义内容目录：指令、hook、业务通用方法等...）
 |  ├─types（主程序类型声明目录）
 |  ├─consts（主程序通用常量目录）
@@ -91,6 +92,12 @@ ________________________________________________________________________________
 ├─settings（项目 settings 管理目录）
 ├─mocks（项目 mocks 管理目录）
 ├─hooks（项目 hooks 管理目录）
+├─electron（集成 electron 代码目录）
+├─index.html（首页）
+├─tsconfig.json（tsconfig 配置文件）
+├─tsconfig.electron.json（electron tsconfig 配置文件）
+├─tsconfig.node.json（node tsconfig 配置文件）
+├─vite.config.ts（vite 配置文件）
 ├─.editorconfig（编辑器通用配置文件）
 ├─.env.development（开发环境变量）
 ├─.env.production（生产环境变量）

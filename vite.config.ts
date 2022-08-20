@@ -2,13 +2,14 @@
  * @Author: HxB
  * @Date: 2022-08-12 16:53:31
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-16 12:46:10
+ * @LastEditTime: 2022-08-20 21:00:20
  * @Description: Vite 配置文件
  * @FilePath: \react_micro_web\vite.config.ts
  */
-import path from 'path';
+import * as path from 'path';
 import { defineConfig } from 'vite';
 import reactPlugin from '@vitejs/plugin-react';
+import electronPlugin from 'vite-plugin-electron';
 
 // eslint-disable-next-line no-undef
 const getPath = _path => path.resolve(__dirname, _path);
@@ -16,6 +17,20 @@ const getPath = _path => path.resolve(__dirname, _path);
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
   console.table({ command, mode });
+  const pluginsConfig = [reactPlugin()];
+  if (mode === 'electron') {
+    pluginsConfig.push(
+      electronPlugin({
+        main: {
+          entry: 'electron/main.ts', // 主进程文件
+        },
+        preload: {
+          // eslint-disable-next-line no-undef
+          input: path.join(__dirname, 'electron/preload.ts'), // 预加载文件
+        },
+      }),
+    );
+  }
   return {
     root: getPath('./'),
     base: './',
@@ -93,6 +108,6 @@ export default defineConfig(({ command, mode }) => {
         },
       },
     },
-    plugins: [reactPlugin()],
+    plugins: pluginsConfig,
   };
 });

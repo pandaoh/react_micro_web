@@ -1,15 +1,20 @@
 {
   "name": "react_micro_web",
   "version": "1.0.0",
+  "main": "dist/electron/main.js",
   "description": "简易伪微前端模板-太极(TaiJi)",
   "scripts": {
     "init": "npm i --ignore-scripts",
     "preinstall": "npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions",
     "prepare": "husky install && npx husky add .husky/pre-commit npm_run_lint && npx husky add .husky/pre-commit npm_run_time && npx husky add .husky/pre-commit npm_run_update-hooks",
     "prepare:after": "因为 windows 系统执行 husky 命令带空格会报错，所以完成安装后记得替换 .husky/pre-commit 中的 _ 为空格。",
+    "before:exe": "tsc -p tsconfig.electron.json",
     "dev": "vite",
+    "dev:exe": "chcp 65001 | vite --open=false -m electron",
     "build": "vite build",
+    "build:exe": "npm run build && npm run before:exe && electron-builder --win --ia32",
     "server": "npm run build && vite preview --host",
+    "server:exe": "npm run build && npm run before:exe && chcp 65001 | electron . prod",
     "lint": "npm run prettier && npm run eslint",
     "eslint": "eslint ./ --fix --ext .ts,.tsx,.js,.jsx,.vue",
     "prettier": "prettier --write ./**/*.{ts,tsx,js,jsx,vue,html,css,scss,less}",
@@ -52,8 +57,8 @@
     "@typescript-eslint/eslint-plugin": "^5.19.0",
     "@typescript-eslint/parser": "^5.19.0",
     "@vitejs/plugin-react": "^2.0.1",
-    "electron": "^18.0.4",
-    "electron-builder": "^23.0.3",
+    "electron": "^18.3.8",
+    "electron-builder": "^23.3.3",
     "eslint": "^8.13.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
@@ -68,7 +73,8 @@
     "sass": "^1.53.0",
     "sass-loader": "^13.0.2",
     "terser": "^5.14.2",
-    "vite": "^3.0.8"
+    "vite": "^3.0.8",
+    "vite-plugin-electron": "^0.9.0"
   },
   "repository": {
     "type": "git",
@@ -89,5 +95,36 @@
     "url": "https://github.com/pandaoh/react_micro_web/issues"
   },
   "homepage": "https://github.com/pandaoh/react_micro_web/blob/main/README.md",
+  "build": {
+    "productName": "TaiJi",
+    "appId": "com.taiji.react.micro.web",
+    "asar": true,
+    "copyright": "Copyright © 2022 ${author}",
+    "files": [
+      "dist/**/*"
+    ],
+    "directories": {
+      "output": "build_exe/${version}"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "dist/electron/icons/icon.ico"
+    },
+    "nsis": {
+      "language": 2052,
+      "artifactName": "${productName}-Windows-${version}-Setup.${ext}",
+      "allowElevation": true,
+      "installerHeader": "dist/electron/icons/icon.ico",
+      "installerHeaderIcon": "dist/electron/icons/icon.ico",
+      "uninstallerIcon": "dist/electron/icons/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "deleteAppDataOnUninstall": true,
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false
+    }
+  },
   "time": "3020291721072022"
 }
