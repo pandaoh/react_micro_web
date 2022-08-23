@@ -1,8 +1,8 @@
 /*
  * @Author: HxB
- * @Date: 2022-04-15 14:29:54
+ * @Date: 2022-08-15 14:29:54
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-19 11:09:35
+ * @LastEditTime: 2022-08-23 17:21:26
  * @Description: eslint 配置文件
  * @FilePath: \react_micro_web\.eslintrc.js
  */

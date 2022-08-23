@@ -99,6 +99,7 @@ ________________________________________________________________________________
 ├─tsconfig.node.json（node tsconfig 配置文件）
 ├─vite.config.ts（vite 配置文件）
 ├─.editorconfig（编辑器通用配置文件）
+├─.env.electron（electron 开发环境变量）
 ├─.env.development（开发环境变量）
 ├─.env.production（生产环境变量）
 ├─.eslintignore（eslint ignore）

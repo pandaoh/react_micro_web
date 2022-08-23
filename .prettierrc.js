@@ -1,8 +1,8 @@
 /*
  * @Author: HxB
- * @Date: 2022-04-27 10:24:53
+ * @Date: 2022-08-15 10:24:53
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-21 18:01:07
+ * @LastEditTime: 2022-08-23 17:21:45
  * @Description: prettier 配置
  * @FilePath: \react_micro_web\.prettierrc.js
  */
