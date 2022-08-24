@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-08-12 16:53:31
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-16 17:56:31
+ * @LastEditTime: 2022-08-24 15:39:52
  * @Description: 首页
  * @FilePath: \react_micro_web\src\views\Home\index.tsx
  */
@@ -12,6 +12,7 @@ import { HomeTwoTone } from '@ant-design/icons';
 import menuIcon from './assets/menu.png';
 import CardMenus from '@/layouts/CardMenus';
 import { actions, selectors } from '@/redux';
+import RouterView from '@/router/AppRouter/RouterView';
 
 const Home = (props: any) => {
   const dispatch = useDispatch();
@@ -42,7 +43,16 @@ const Home = (props: any) => {
     },
   ];
 
-  return <CardMenus menus={menus} />;
+  return (
+    <div style={{ width: '100%', height: '100%' }}>
+      <div style={{ width: '100%', height: '50%' }}>
+        <CardMenus menus={menus} />
+      </div>
+      <div style={{ width: '600px', height: '300px', border: '1px solid black', margin: '20px auto' }}>
+        <RouterView routes={props.routes} defaultRoute={props.defaultRoute} />
+      </div>
+    </div>
+  );
 };
 
 // redux connect 将 store 中的 state 、 action 、 dispatch 导入到组件中。(第一种方式)

@@ -2,9 +2,9 @@
  * @Author: HxB
  * @Date: 2022-08-15 11:24:12
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-23 17:21:58
- * @Description: 路由守卫
- * @FilePath: \react_micro_web\src\router\AuthRouteDom.tsx
+ * @LastEditTime: 2022-08-24 12:47:21
+ * @Description: 路由守卫子组件
+ * @FilePath: \react_micro_web\src\router\AppRouter\AuthRouteDom.tsx
  */
 import React, { Component } from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
@@ -51,7 +51,7 @@ class AuthRoute extends Component<any, any> {
 
     // 用户已登录，还想去登录页面。禁止
     if (userRoles && path === '/login') {
-      return <Redirect to="/" />;
+      return <Redirect to="/home" />;
     }
 
     const $AuthRouteDom = <this.props.component {...this.props} routes={this.props.routes} />;
