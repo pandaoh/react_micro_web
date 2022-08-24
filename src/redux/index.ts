@@ -2,23 +2,27 @@
  * @Author: HxB
  * @Date: 2022-08-15 10:48:17
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-23 17:22:29
+ * @LastEditTime: 2022-08-24 18:24:15
  * @Description: redux 状态总管理
  * @FilePath: \react_micro_web\src\redux\index.ts
  */
 import { configureStore } from '@reduxjs/toolkit';
-import loadingReducer, { loadingSelector, loadingActions } from './states/loading';
+import ModulesRedux from './modules_states';
+import MainRedux from './main_states';
 
 export default configureStore({
   reducer: {
-    loading: loadingReducer,
+    ...ModulesRedux.reducers,
+    ...MainRedux.reducers,
   },
 });
 
 export const selectors = {
-  loading: loadingSelector,
+  ...ModulesRedux.selectors,
+  ...MainRedux.selectors,
 };
 
 export const actions = {
-  loading: loadingActions,
+  ...ModulesRedux.actions,
+  ...MainRedux.actions,
 };

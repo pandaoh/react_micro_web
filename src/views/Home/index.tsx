@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-08-12 16:53:31
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-24 15:39:52
+ * @LastEditTime: 2022-08-24 18:28:14
  * @Description: 首页
  * @FilePath: \react_micro_web\src\views\Home\index.tsx
  */
@@ -17,11 +17,13 @@ import RouterView from '@/router/AppRouter/RouterView';
 const Home = (props: any) => {
   const dispatch = useDispatch();
   const { isLoading, msg } = useSelector(selectors.loading);
+  const module_a = useSelector(selectors.module_a);
 
   // redux demo
-  console.log({ isLoading, msg }, props.isLoading, props.msg, props.startLoading, props.stopLoading);
+  console.log({ isLoading, msg }, { module_a }, props.isLoading, props.msg, props.startLoading, props.stopLoading);
   useEffect(() => {
     dispatch(actions.loading.startLoading('msg'));
+    dispatch(actions.module_a.setModuleAState({ version: '2.0.0' }));
     setTimeout(() => dispatch(actions.loading.stopLoading()), 2000);
   }, []);
 
