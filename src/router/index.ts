@@ -2,14 +2,14 @@
  * @Author: HxB
  * @Date: 2022-08-15 10:36:17
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-24 15:34:59
+ * @LastEditTime: 2022-08-25 11:21:09
  * @Description: 路由配置文件
- * @FilePath: \react_micro_web\src\router\config.ts
+ * @FilePath: \react_micro_web\src\router\index.ts
  */
 import { sleep } from 'js-xxx';
 import { lazy } from 'react';
 import { defaultModule, modulesRoute, modulesRouteName } from '@configuration/modules_router_config';
-import modules from './modules_config';
+import modules from './modules_routes';
 
 const routes = [
   {
@@ -56,5 +56,7 @@ const routes = [
     exact: true,
   },
 ];
+
+// 此处可获取路由与菜单结构，记得 filter 用户 roles 。
 
 export default routes;

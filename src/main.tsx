@@ -12,7 +12,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConfigProvider, message, notification } from 'antd';
-import routes from './router/config';
+import routes from './router';
 import App from './views/App';
 import store from '@/redux';
 

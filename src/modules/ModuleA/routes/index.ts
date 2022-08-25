@@ -2,9 +2,9 @@
  * @Author: HxB
  * @Date: 2022-08-15 10:36:17
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-24 15:29:55
+ * @LastEditTime: 2022-08-25 11:20:28
  * @Description: 模块 A 路由配置
- * @FilePath: \react_micro_web\src\modules\ModuleA\routes\config.ts
+ * @FilePath: \react_micro_web\src\modules\ModuleA\routes\index.ts
  */
 import { lazy } from 'react';
 import { modulesRoute } from '@configuration/modules_router_config';
