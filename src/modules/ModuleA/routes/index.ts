@@ -2,16 +2,17 @@
  * @Author: HxB
  * @Date: 2022-08-15 10:36:17
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-25 11:20:28
+ * @LastEditTime: 2022-08-26 14:39:05
  * @Description: 模块 A 路由配置
  * @FilePath: \react_micro_web\src\modules\ModuleA\routes\index.ts
  */
 import { lazy } from 'react';
-import { modulesRoute } from '@configuration/modules_router_config';
+import { MODULES_ROUTE } from '@configuration/modules_router_config';
+import { RouteConfig } from '@/types/router';
 
-const moduleRoutePrefix = `/${modulesRoute}/module_a`;
+const moduleRoutePrefix = `/${MODULES_ROUTE}/module_a`;
 
-const routes = [
+const routes: RouteConfig[] = [
   {
     path: moduleRoutePrefix,
     name: 'ModuleA',
@@ -33,6 +34,38 @@ const routes = [
         name: 'DemoB',
         exact: true,
         component: lazy(() => import('@modules/ModuleA/pages/DemoB')),
+      },
+      {
+        path: `${moduleRoutePrefix}/demo_x`,
+        name: 'DemoX',
+        exact: true,
+        children: [
+          {
+            path: `${moduleRoutePrefix}/demo_c`,
+            name: 'DemoC',
+            exact: true,
+            component: lazy(() => import('@modules/ModuleA/pages/DemoA')),
+          },
+          {
+            path: `${moduleRoutePrefix}/demo_d`,
+            name: 'DemoD',
+            exact: true,
+            component: lazy(() => import('@modules/ModuleA/pages/DemoB')),
+          },
+          {
+            path: `${moduleRoutePrefix}/demo_y`,
+            name: 'DemoY',
+            exact: true,
+            children: [
+              {
+                path: `${moduleRoutePrefix}/demo_e`,
+                name: 'DemoE',
+                exact: true,
+                component: lazy(() => import('@modules/ModuleA/pages/DemoA')),
+              },
+            ],
+          },
+        ],
       },
     ],
   },

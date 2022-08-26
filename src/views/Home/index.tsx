@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-08-12 16:53:31
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-24 18:28:14
+ * @LastEditTime: 2022-08-26 13:58:18
  * @Description: 首页
  * @FilePath: \react_micro_web\src\views\Home\index.tsx
  */
@@ -13,6 +13,7 @@ import menuIcon from './assets/menu.png';
 import CardMenus from '@/layouts/CardMenus';
 import { actions, selectors } from '@/redux';
 import RouterView from '@/router/AppRouter/RouterView';
+import AntIcon from '@/common/AntIcon';
 
 const Home = (props: any) => {
   const dispatch = useDispatch();
@@ -52,6 +53,7 @@ const Home = (props: any) => {
       </div>
       <div style={{ width: '600px', height: '300px', border: '1px solid black', margin: '20px auto' }}>
         <RouterView routes={props.routes} defaultRoute={props.defaultRoute} />
+        <AntIcon icon="BugTwoTone" spin={true} style={{ margin: 'auto', display: 'block', width: '30px' }} />
       </div>
     </div>
   );

@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-08-15 14:29:54
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-23 17:21:26
+ * @LastEditTime: 2022-08-26 10:40:10
  * @Description: eslint 配置文件
  * @FilePath: \react_micro_web\.eslintrc.js
  */
@@ -63,6 +63,8 @@ module.exports = {
           'consts',
           'unmount',
           'renderer',
+          'unordered',
+          'appstore',
         ],
         skipIfMatch: [
           'http://[^s]*',

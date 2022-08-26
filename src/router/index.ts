@@ -2,45 +2,49 @@
  * @Author: HxB
  * @Date: 2022-08-15 10:36:17
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-25 11:21:09
+ * @LastEditTime: 2022-08-26 14:39:21
  * @Description: 路由配置文件
  * @FilePath: \react_micro_web\src\router\index.ts
  */
 import { sleep } from 'js-xxx';
 import { lazy } from 'react';
-import { defaultModule, modulesRoute, modulesRouteName } from '@configuration/modules_router_config';
+import { DEFAULT_MODULE, MODULES_ROUTE_NAME, MODULES_ROUTE } from '@configuration/modules_router_config';
 import modules from './modules_routes';
+import { RouteConfig } from '@/types/router';
 
-const routes = [
+const routes: RouteConfig[] = [
   {
+    name: 'App',
     path: '/',
     redirect: '/login',
     exact: true,
   },
   {
+    name: 'Home',
     path: '/home',
     exact: true,
-    redirect: `/${modulesRoute}`,
+    redirect: `/${MODULES_ROUTE}`,
   },
   {
-    path: `/${modulesRoute}`,
+    path: `/${MODULES_ROUTE}`,
     exact: false,
-    name: modulesRouteName,
+    name: MODULES_ROUTE_NAME,
     roles: ['admin'],
     component: lazy(async () => import('@views/Home')),
-    meta: {
-      title: '首页',
-    },
-    defaultRoute: `/${modulesRoute}/${defaultModule}`,
+    // meta: {
+    //   title: '首页',
+    //   icon: 'HomeFilled',
+    //   defaultKeepAlive: false,
+    //   keepAlive: false,
+    //   hidden: false,
+    // },
+    defaultRoute: `/${MODULES_ROUTE}/${DEFAULT_MODULE}`,
     routes: [...modules],
   },
   {
     path: '/login',
     name: 'Login',
     component: lazy(() => import('@views/Login')),
-    meta: {
-      title: '登录页面',
-    },
     exact: true,
   },
   {
@@ -50,13 +54,8 @@ const routes = [
       await sleep(3500); // 模拟异步加载，展示加载动画。
       return import('@views/404');
     }),
-    meta: {
-      title: '404',
-    },
     exact: true,
   },
 ];
-
-// 此处可获取路由与菜单结构，记得 filter 用户 roles 。
 
 export default routes;
