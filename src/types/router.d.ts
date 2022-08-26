@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-08-26 10:14:03
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-26 13:44:33
+ * @LastEditTime: 2022-08-26 15:18:28
  * @Description: 路由声明文件
  * @FilePath: \react_micro_web\src\types\router.d.ts
  */
@@ -14,8 +14,8 @@ export interface RouteConfig {
   defaultRoute?: string;
   exact?: boolean;
   component?: any;
-  children?: RouteConfig[];
-  routes?: RouteConfig[];
+  children?: RouteConfig[]; // 菜单(路由渲染时会同级渲染)
+  routes?: RouteConfig[]; // 子路由
   roles?: string[] | string;
   meta?: {
     title?: string;

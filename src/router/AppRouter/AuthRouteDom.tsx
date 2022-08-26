@@ -2,13 +2,14 @@
  * @Author: HxB
  * @Date: 2022-08-15 11:24:12
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-24 12:47:21
+ * @LastEditTime: 2022-08-26 15:29:33
  * @Description: 路由守卫子组件
  * @FilePath: \react_micro_web\src\router\AppRouter\AuthRouteDom.tsx
  */
 import React, { Component } from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
 import store, { actions } from '@/redux';
+import { DEV_ROLES, IS_DEV } from '@/consts/dev';
 
 class AuthRoute extends Component<any, any> {
   private _cancelHistoryListener: any;
@@ -47,7 +48,7 @@ class AuthRoute extends Component<any, any> {
     // alert(JSON.stringify(this.props));
 
     // 用户角色，全局状态管理可自行引入 redux 。
-    const userRoles = ['admin'];
+    const userRoles = IS_DEV ? DEV_ROLES : undefined;
 
     // 用户已登录，还想去登录页面。禁止
     if (userRoles && path === '/login') {
