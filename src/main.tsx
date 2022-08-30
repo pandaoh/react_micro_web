@@ -2,12 +2,13 @@
  * @Author: HxB
  * @Date: 2022-08-12 16:53:31
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-24 15:21:44
+ * @LastEditTime: 2022-08-30 16:12:20
  * @Description: 主文件入口
  * @FilePath: \react_micro_web\src\main.tsx
  */
 import '@libs/css/reset.css';
 import 'antd/dist/antd.css';
+import '@_custom/css//app.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
