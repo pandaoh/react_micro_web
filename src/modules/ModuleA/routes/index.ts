@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-08-15 10:36:17
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-26 14:39:05
+ * @LastEditTime: 2022-08-30 13:34:19
  * @Description: 模块 A 路由配置
  * @FilePath: \react_micro_web\src\modules\ModuleA\routes\index.ts
  */
@@ -27,6 +27,7 @@ const routes: RouteConfig[] = [
         path: `${moduleRoutePrefix}/demo_a`,
         name: 'DemoA',
         exact: true,
+        meta: { keepAlive: true },
         component: lazy(() => import('@modules/ModuleA/pages/DemoA')),
       },
       {

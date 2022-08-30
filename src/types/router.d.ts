@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-08-26 10:14:03
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-26 15:18:28
+ * @LastEditTime: 2022-08-30 12:19:06
  * @Description: 路由声明文件
  * @FilePath: \react_micro_web\src\types\router.d.ts
  */
@@ -22,7 +22,6 @@ export interface RouteConfig {
     description?: string;
     icon?: any;
     keepAlive?: boolean;
-    defaultKeepAlive?: boolean;
     hidden?: boolean;
   };
   [key: string]: any;

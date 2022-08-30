@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-08-15 10:36:17
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-26 15:17:59
+ * @LastEditTime: 2022-08-30 12:19:04
  * @Description: 路由配置文件
  * @FilePath: \react_micro_web\src\router\index.ts
  */
@@ -35,7 +35,6 @@ const routes: RouteConfig[] = [
     //   title: '首页',
     //   description: 'Welcome to the TaiJi!',
     //   icon: 'HomeFilled',
-    //   defaultKeepAlive: false,
     //   keepAlive: false,
     //   hidden: false,
     // },

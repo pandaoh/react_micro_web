@@ -2,44 +2,19 @@
  * @Author: HxB
  * @Date: 2022-08-15 11:24:12
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-26 15:29:33
+ * @LastEditTime: 2022-08-30 13:41:47
  * @Description: 路由守卫子组件
  * @FilePath: \react_micro_web\src\router\AppRouter\AuthRouteDom.tsx
  */
 import React, { Component } from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
+import KeepAlive from 'react-activation';
 import store, { actions } from '@/redux';
 import { DEV_ROLES, IS_DEV } from '@/consts/dev';
 
 class AuthRoute extends Component<any, any> {
-  private _cancelHistoryListener: any;
-
   constructor(props: any) {
     super(props);
-  }
-
-  // 相当于整个路由的 beforeEach 守卫
-  componentDidMount() {
-    // 可定义 beforeEnter 独显路由守卫，在此处使用 this.props.beforeEnter 调用。
-    // componentWillMount
-    // 进入路由的时候监听路由的变化 如果路由发生变化则进行相应操作
-    this._cancelHistoryListener = this.props.history.listen(location => {
-      if (this.props.location.pathname !== location.pathname) {
-        console.log(`路由发生了变化: 上一条：${this.props.location.pathname} 下一条：${location.pathname}`);
-      }
-    });
-  }
-
-  // 参考 Vue 的路由守卫
-  // 我们可以封装基础组件与布局注入路由守卫，并让组件继承此基础组件。
-  // 若想定义 beforeRouteUpdate，可以使用基础组件 componentWillUpdate/componentDidUpdate 。
-  // 可定义基础组件内部自己的守卫 使用 this.props.beforeRouteEnter 调用
-  // 可定义基础组件内部自己的守卫 使用 this.props.beforeRouteLeave 调用
-
-  // 相当于整个路由的 afterEach 守卫
-  componentWillUnmount() {
-    // 离开路由页面的时候，清除监听。
-    this._cancelHistoryListener();
   }
 
   render() {
@@ -55,7 +30,21 @@ class AuthRoute extends Component<any, any> {
       return <Redirect to="/home" />;
     }
 
-    const $AuthRouteDom = <this.props.component {...this.props} routes={this.props.routes} />;
+    const $AuthRouteDom =
+      // https://github.com/CJY0208/react-activation/issues/18
+      !this.props.routes ? (
+        <KeepAlive
+          cacheKey={this.props.name}
+          id={this.props.path}
+          key={this.props.path}
+          name={this.props.path}
+          when={() => [this.props?.meta?.keepAlive ?? false, this.props?.meta?.keepAlive ?? false]}
+        >
+          <this.props.component {...this.props} routes={this.props.routes} />
+        </KeepAlive>
+      ) : (
+        <this.props.component {...this.props} routes={this.props.routes} />
+      );
 
     // 如果路由无需校验 不管
     if (!roles) {
