@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-08-26 10:14:03
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-30 12:19:06
+ * @LastEditTime: 2022-09-13 11:25:01
  * @Description: 路由声明文件
  * @FilePath: \react_micro_web\src\types\router.d.ts
  */
@@ -20,7 +20,7 @@ export interface RouteConfig {
   meta?: {
     title?: string;
     description?: string;
-    icon?: any;
+    icon?: string;
     keepAlive?: boolean;
     hidden?: boolean;
   };
@@ -32,7 +32,7 @@ export interface BreadcrumbPaths {
   name: string;
   path: string;
   title: string;
-  icon: any;
+  icon: string;
   list?: Array<BreadcrumbPaths>;
   [propName: string]: any;
 }
@@ -42,7 +42,7 @@ export interface MenusType {
   name: string;
   path: string;
   title: string;
-  icon: any;
+  icon: string;
   openKeys: string[];
   breadcrumbPaths: BreadcrumbPaths[];
   children?: MenusType[];
@@ -55,7 +55,7 @@ export interface ModuleMenus {
     name: string;
     path: string;
     title: string;
-    icon: any;
+    icon: string;
     menus: Array<MenusType>;
     [propName: string]: any;
   };

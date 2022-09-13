@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-08-15 10:36:17
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-30 12:19:04
+ * @LastEditTime: 2022-09-13 11:10:31
  * @Description: 路由配置文件
  * @FilePath: \react_micro_web\src\router\index.ts
  */
@@ -48,7 +48,7 @@ const routes: RouteConfig[] = [
     exact: true,
   },
   {
-    path: null,
+    path: '*', // 不设置 null，兼容一些第三方组件（例如缓存组件）。
     name: '404',
     component: lazy(async () => {
       await sleep(3500); // 模拟异步加载，展示加载动画。
