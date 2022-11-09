@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-08-18 10:34:52
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-20 21:13:39
+ * @LastEditTime: 2022-11-09 16:07:12
  * @Description: preload
  * @FilePath: \react_micro_web\electron\preload.ts
  */
@@ -20,9 +20,9 @@ contextBridge.exposeInMainWorld('myIpc', {
   on: (channel, listener) => {
     ipcRenderer.on(channel, (event, args) => listener(args));
   },
-  invoke: (channel, args) => {
-    return ipcRenderer.invoke(channel, args);
-  },
+  // invoke: (channel, args) => { // 不推荐，推荐使用 send/sendSync => event.reply == event.sender.send == win.webContents.send/event.returnValue 。
+  //   return ipcRenderer.invoke(channel, args); // ipcMain.handle ...
+  // },
   exit: () => {
     console.log('destroy');
     ipcRenderer.send('destroy');

@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-08-15 15:42:27
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-23 17:21:53
+ * @LastEditTime: 2022-11-09 16:12:49
  * @Description: electron 打包与启动文件
  * @FilePath: \react_micro_web\electron\main.ts
  */
@@ -12,6 +12,10 @@ import { app, BrowserWindow, globalShortcut } from 'electron';
 
 // eslint-disable-next-line no-undef
 const mode = process.argv[2];
+
+// const baseDir = path.dirname(process.execPath);
+// const baseRenderDir = path.join(baseDir, 'resources/app');
+// const bgPng = path.join(baseRenderDir, 'source', 'bg.png');
 
 let mainWindow = null;
 
