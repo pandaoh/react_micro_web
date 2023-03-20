@@ -30,7 +30,7 @@ const loadingSlice = createSlice({
 
 const LoadingReducers = loadingSlice.reducer; // store state
 const LoadingActions = loadingSlice.actions; // set state
-const LoadingSelectors = state => state.loading; // get state
+const LoadingSelectors = (state) => state.loading; // get state
 
 export default {
   reducers: {

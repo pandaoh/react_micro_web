@@ -44,7 +44,7 @@ const ModuleAMain = (props: any) => {
         >
           DemoB
         </Button>
-        {cachingNodes.map(node => (
+        {cachingNodes.map((node) => (
           <Button
             key={node.name}
             type="ghost"

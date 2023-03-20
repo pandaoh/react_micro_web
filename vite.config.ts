@@ -10,14 +10,20 @@ import * as path from 'path';
 import { defineConfig } from 'vite';
 import reactPlugin from '@vitejs/plugin-react';
 import electronPlugin from 'vite-plugin-electron';
+import eslint from 'vite-plugin-eslint';
 
 // eslint-disable-next-line no-undef
-const getPath = _path => path.resolve(__dirname, _path);
+const getPath = (_path) => path.resolve(__dirname, _path);
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
   console.table({ command, mode });
-  const pluginsConfig = [reactPlugin()];
+  const pluginsConfig = [
+    eslint({
+      fix: true,
+    }),
+    reactPlugin(),
+  ];
   if (mode === 'electron') {
     pluginsConfig.push(
       electronPlugin({
@@ -87,7 +93,7 @@ export default defineConfig(({ command, mode }) => {
         '^/api': {
           target: 'http://192.168.120.88',
           changeOrigin: true,
-          rewrite: path => path.replace(/^\/api/, '/api/test/'),
+          rewrite: (path) => path.replace(/^\/api/, '/api/test/'),
         },
         '^/upload': {
           target: 'http://a.biugle.cn',

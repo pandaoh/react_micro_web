@@ -26,7 +26,7 @@ const ModuleASlice = createSlice({
 
 const ModuleAReducers = ModuleASlice.reducer; // store state
 const ModuleActions = ModuleASlice.actions; // set state
-const ModuleASelectors = state => state.module_a; // get state
+const ModuleASelectors = (state) => state.module_a; // get state
 
 export default {
   reducers: {
